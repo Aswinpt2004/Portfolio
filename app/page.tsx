@@ -7,7 +7,6 @@ import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { FloatingChatbot } from "@/components/floating-chatbot"
 import { Toaster } from "@/components/ui/toaster"
-import { ViewCounter } from "@/components/view-counter"
 
 export default function Home() {
   return (
