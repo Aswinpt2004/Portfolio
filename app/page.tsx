@@ -12,7 +12,6 @@ import { ViewCounter } from "@/components/view-counter"
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <ViewCounter />
       <Navbar />
 
       <div id="home">
