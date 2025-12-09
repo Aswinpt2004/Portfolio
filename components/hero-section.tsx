@@ -69,7 +69,7 @@ export function HeroSection() {
               className="transition-all duration-300 transform hover:scale-105"
               asChild
             >
-              <a href="/Aswin%20P%20T_Research.pdf" download="Aswin P T_Research.pdf">
+              <a href="/Aswin_P_T_resume_1.pdf" download="Aswin_P_T_resume_1.pdf">
                 <Download className="mr-2 h-5 w-5" />
                 Resume
               </a>
