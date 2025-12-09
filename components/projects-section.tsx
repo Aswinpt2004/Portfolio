@@ -48,7 +48,7 @@ const projects = [
     technologies: ["Python", "PyTorch", "OpenCV", "SMPL"],
     github: "https://github.com/Aswinpt2004",
     demo: "#",
-    image: "",
+    image: "/shader.png",
   },
   { title: "Aswin's Fuzzy Logic Toolbox",
     description:
@@ -56,7 +56,7 @@ const projects = [
     technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
     github: "https://github.com/Aswinpt2004/fuzzy",
     demo: "https://fuzzytoolbox.onrender.com/",
-    image: "",
+    image: "/Fuzzy.png",
   },
 ]
 
