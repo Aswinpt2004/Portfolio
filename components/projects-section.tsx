@@ -42,6 +42,22 @@ const projects = [
     demo: "#",
     image: "/whatsapp-chatbot-interface-conversation.jpg",
   },
+  { title: "Adaptive Confidence Modeling for SHADER-Based 3D Human Body Shape Estimation",
+    description:
+      "Implemented an adaptive confidence modeling approach to enhance SHADER-based 3D human body shape estimation from monocular images. Improved accuracy and robustness in diverse scenarios.",
+    technologies: ["Python", "PyTorch", "OpenCV", "SMPL"],
+    github: "https://github.com/Aswinpt2004",
+    demo: "#",
+    image: "",
+  },
+  { title: "Aswin's Fuzzy Logic Toolbox",
+    description:
+      "A comprehensive web-based interactive fuzzy logic system built with Flask and Python. This toolbox provides complete support for fuzzy set operations, membership functions, relations, implications, and full fuzzy inference workflows.",
+    technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Aswinpt2004/fuzzy",
+    demo: "https://fuzzytoolbox.onrender.com/",
+    image: "",
+  },
 ]
 
 export function ProjectsSection() {
