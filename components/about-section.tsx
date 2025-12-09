@@ -60,7 +60,7 @@ export function AboutSection() {
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-primary mr-2" />
-                <span className="text-muted-foreground">+91 96455 99051</span>
+                <span className="text-muted-foreground">+91 8589917134</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-accent mr-2" />
