@@ -8,6 +8,7 @@ export function Footer() {
           <div className="text-center sm:text-left">
             <p className="text-muted-foreground">© 2024 Aswin P T. All rights reserved.</p>
             <p className="text-sm text-muted-foreground">Built with Next.js, TypeScript, and Tailwind CSS</p>
+            <p className="text-sm text-primary font-semibold mt-1">AI (Aswin Intelligence) </p>
           </div>
 
           <div className="flex items-center gap-4">

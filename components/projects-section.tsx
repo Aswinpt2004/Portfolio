@@ -57,26 +57,26 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="glass hover:glass-dark transition-all duration-300 transform hover:scale-105 overflow-hidden"
+              className="glass hover:glass-dark transition-all duration-300 transform hover:scale-105 overflow-hidden flex flex-col"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video overflow-hidden shrink-0">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
               </div>
-              <CardHeader>
-                <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-base sm:text-lg lg:text-xl font-bold leading-snug">{project.title}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+              <CardContent className="space-y-3 flex-grow flex flex-col">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{project.description}</p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {project.technologies.map((tech, techIndex) => (
                     <Badge key={techIndex} variant="secondary" className="text-xs">
                       {tech}
@@ -84,16 +84,16 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
-                <div className="flex gap-3 pt-2">
-                  <Button size="sm" variant="outline" asChild>
+                <div className="flex gap-2 pt-2 mt-auto">
+                  <Button size="sm" variant="outline" asChild className="text-xs">
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-2" />
+                      <Github className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                       Code
                     </a>
                   </Button>
-                  <Button size="sm" asChild>
+                  <Button size="sm" asChild className="text-xs">
                     <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
+                      <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                       Demo
                     </a>
                   </Button>
