@@ -2,15 +2,43 @@
 
 import { Button } from "@/components/ui/button"
 import { TypingAnimation } from "./typing-animation"
-import { Github, Linkedin, Download, ArrowDown } from "lucide-react"
+import { Github, Linkedin, Download, ArrowDown, Eye, FileDown, ChevronDown } from "lucide-react"
+import { useState, useRef, useEffect } from "react"
 
 export function HeroSection() {
+  const [showResumeMenu, setShowResumeMenu] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+
   const scrollToAbout = () => {
     const element = document.querySelector("#about")
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
   }
+
+  const handleViewResume = () => {
+    window.open("/Aswin_P_T_resume.pdf", "_blank")
+    setShowResumeMenu(false)
+  }
+
+  const handleDownloadResume = () => {
+    const link = document.createElement("a")
+    link.href = "/Aswin_P_T_resume.pdf"
+    link.download = "Aswin_P_T_resume.pdf"
+    link.click()
+    setShowResumeMenu(false)
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setShowResumeMenu(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   return (
     <section id="home" className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-20">
@@ -63,17 +91,37 @@ export function HeroSection() {
               </a>
             </Button>
 
-            <Button
-              size="lg"
-              variant="secondary"
-              className="transition-all duration-300 transform hover:scale-105"
-              asChild
-            >
-              <a href="/Aswin_P_T_resume.pdf" download="Aswin_P_T_resume.pdf">
+            <div className="relative" ref={menuRef}>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="transition-all duration-300 transform hover:scale-105"
+                onClick={() => setShowResumeMenu(!showResumeMenu)}
+              >
                 <Download className="mr-2 h-5 w-5" />
                 Resume
-              </a>
-            </Button>
+                <ChevronDown className="ml-2 h-4 w-4" />
+              </Button>
+
+              {showResumeMenu && (
+                <div className="absolute top-full mt-2 right-0 sm:left-0 sm:right-auto w-48 glass rounded-lg shadow-lg border border-primary/20 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <button
+                    onClick={handleViewResume}
+                    className="w-full px-4 py-3 text-left hover:bg-primary/10 transition-colors flex items-center gap-2 border-b border-primary/10"
+                  >
+                    <Eye className="h-4 w-4" />
+                    <span>View Resume</span>
+                  </button>
+                  <button
+                    onClick={handleDownloadResume}
+                    className="w-full px-4 py-3 text-left hover:bg-primary/10 transition-colors flex items-center gap-2"
+                  >
+                    <FileDown className="h-4 w-4" />
+                    <span>Download Resume</span>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
 
           <Button
