@@ -58,6 +58,22 @@ const projects = [
     demo: "https://fuzzytoolbox.onrender.com/",
     image: "/Fuzzy.png",
   },
+  { title: "AI Enhanced PREDICT-ASD: Preliminary Risk Evaluation & Digital Intervention for Childhood ASD",
+    description:
+      "AI-Enhanced PREDICT-ASD is a web-based platform designed to support early screening and management of Autism Spectrum Disorder (ASD) in children. It integrates standardized questionnaires, interactive game-based assessments, AI-assisted preliminary risk evaluation, and real-time caregiver–clinician communication within a secure, role-based system. The platform aims to improve accessibility, engagement, and coordination in early ASD screening and intervention.",
+    technologies: ["Next.js","React","TypeScript","Backend APIs","MongoDB (Cloud Database)","Role-Based Authentication","Real-Time Chat Integration"],
+    github: "https://github.com/Aswinpt2004/ASD_prediction_web_miniproject",
+    demo: "https://predictasd.vercel.app/",
+    image: "/Asd.png",
+  },
+   { title: "Dynamic Connectome-Based Prediction of Reality-Monitoring Failure (On Going)",
+    description:
+      "This project investigates how sleep deprivation disrupts brain network stability by modeling the brain as a dynamic functional connectome. Using time-resolved fMRI connectivity and Graph Attention Networks, the study aims to predict hallucination-prone states and identify critical prefrontal–sensory disconnections responsible for reality-monitoring failure.",
+    technologies: ["Python","fMRIPrep","Nilearn","PyTorch Geometric (GAT)","NetworkX","GNN"],
+    github: "https://github.com/Aswinpt2004",
+    demo: "https://github.com/Aswinpt2004",
+    image: "Hallucinataion.png",
+  },
 ]
 
 export function ProjectsSection() {
