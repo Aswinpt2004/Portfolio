@@ -57,7 +57,7 @@ export function HeroSection() {
 
           <div className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-6 h-16 flex items-center justify-center">
             <TypingAnimation
-              texts={["Software Engineer ", "Machine Intelligence Student", "AI/ML Enthusiast", "Full-stack Innovator"]}
+              texts={["AI/ML Researcher","Software Engineer ", "Machine Intelligence Student", "AI/ML Enthusiast", "Full-stack Innovator"]}
               className="font-medium"
             />
           </div>
