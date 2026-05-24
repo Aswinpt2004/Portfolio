@@ -66,13 +66,21 @@ const projects = [
     demo: "https://predictasd.vercel.app/",
     image: "/Asd.png",
   },
-   { title: "Dynamic Connectome-Based Prediction of Reality-Monitoring Failure (On Going)",
+  { title: "Dynamic Connectome-Based Prediction of Reality-Monitoring Failure (On Going)",
     description:
       "This project investigates how sleep deprivation disrupts brain network stability by modeling the brain as a dynamic functional connectome. Using time-resolved fMRI connectivity and Graph Attention Networks, the study aims to predict hallucination-prone states and identify critical prefrontal–sensory disconnections responsible for reality-monitoring failure.",
     technologies: ["Python","fMRIPrep","Nilearn","PyTorch Geometric (GAT)","NetworkX","GNN"],
     github: "https://github.com/Aswinpt2004",
     demo: "https://github.com/Aswinpt2004",
     image: "Hallucinataion.png",
+  },
+  { title: "FEDGRAPH-SHIELD: PRIVACY-PRESERVING FEDERATED GRAPH LEARNING FOR CROSS-INSTITUTIONAL FINANCIALFRAUD DETECTION",
+    description:
+      "This work presents a privacy-preserving framework evaluated on a fraud detection dataset to enable secure and collaborative analysis without exposing sensitive data. The framework integrates privacy protection techniques with distributed model learning to maintain data confidentiality while supporting effective fraud identification. Experimental evaluation demonstrates its ability to preserve privacy while achieving reliable performance across different data conditions.",
+    technologies: ["Python", "Federated Learning", "PyTorch", "PyTorch Geometric (GNN)", "Graph Neural Networks (GNN)", "Differential Privacy", "Secure Aggregation", "NetworkX"],
+    github: "https://github.com/Aswinpt2004/PRIVACY-PRESERVING-FEDERATED-GRAPH-LEARNING-FOR-CROSS-INSTITUTIONAL-FINANCIAL-FRAUD-DETECTION",
+    demo: "https://github.com/Aswinpt2004",
+    image: "fl_archi.png",
   },
 ]
 
