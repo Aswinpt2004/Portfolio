@@ -36,8 +36,9 @@ const skillCategories = [
       { name: "Deep Learning", level: "Advanced", years: "2+", projects: "12+", color: "bg-purple-600" },
       { name: "TensorFlow", level: "Intermediate", years: "1+", projects: "6+", color: "bg-orange-600" },
       { name: "Computer Vision", level: "Intermediate", years: "1+", projects: "4+", color: "bg-pink-500" },
-      { name: "Data Analytics", level: "Advanced", years: "2+", projects: "10+", color: "bg-indigo-500" },
-      { name: "Cognitive Computing", level: "Intermediate", years: "1+", projects: "1+", color: "bg-pink-500" },
+      	{ name: "Data Analytics", level: "Advanced", years: "2+", projects: "10+", color: "bg-indigo-500" },
+      	{ name: "Federated Learning", level: "Advanced", years: "1+", projects: "3+", color: "bg-emerald-500" },
+      	{ name: "Cognitive Computing", level: "Intermediate", years: "1+", projects: "1+", color: "bg-pink-500" },
     ],
   },
   {
