@@ -17,14 +17,14 @@ export function HeroSection() {
   }
 
   const handleViewResume = () => {
-    window.open("/Aswin_P_T_resume.pdf", "_blank")
+    window.open("/Aswin_PT_Resume_.pdf", "_blank")
     setShowResumeMenu(false)
   }
 
   const handleDownloadResume = () => {
     const link = document.createElement("a")
-    link.href = "/Aswin_P_T_resume.pdf"
-    link.download = "Aswin_P_T_resume.pdf"
+    link.href = "/Aswin_PT_Resume_.pdf"
+    link.download = "Aswin_PT_Resume_.pdf"
     link.click()
     setShowResumeMenu(false)
   }
