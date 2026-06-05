@@ -102,7 +102,7 @@ export function FloatingChatbot() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999]">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999]">
       <div className="relative">
         <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />
         <div className="absolute inset-0 rounded-full bg-primary/10 animate-pulse" />
@@ -140,7 +140,7 @@ export function FloatingChatbot() {
       </div>
 
       {isOpen && (
-        <div className="absolute bottom-20 right-0 w-80 sm:w-96 animate-in slide-in-from-bottom-5 duration-300">
+        <div className="absolute bottom-20 right-0 w-[calc(100vw-2rem)] max-w-sm sm:max-w-md animate-in slide-in-from-bottom-5 duration-300">
           <div className="bg-background/95 backdrop-blur-xl border-primary/20 shadow-2xl glow border-2 rounded-lg">
             <div className="p-4 border-b border-primary/20">
               <div className="flex items-center gap-2">
@@ -222,7 +222,7 @@ export function FloatingChatbot() {
 
               <div className="space-y-3">
                 <p className="text-sm font-medium text-foreground">Quick Navigation:</p>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <button
                     onClick={() => scrollToSection("about")}
                     className="text-xs h-8 px-3 border border-primary/30 rounded-md bg-primary/5 hover:bg-primary/20 hover:border-primary/50 text-foreground transition-colors flex items-center gap-1"

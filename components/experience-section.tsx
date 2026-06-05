@@ -46,11 +46,11 @@ export function ExperienceSection() {
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-6">
           {experiences.map((exp, idx) => (
             <Card key={idx} className="glass hover:glass-dark transition-all duration-300">
-              <CardHeader className="flex items-start gap-4 pb-2">
+              <CardHeader className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 pb-2">
                 <Briefcase className="h-6 w-6 text-primary" />
-                <div>
+                <div className="min-w-0">
                   <CardTitle className="text-base sm:text-lg font-bold">{exp.role}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{exp.subtitle} — {exp.period}</p>
+                  <p className="text-sm text-muted-foreground break-words">{exp.subtitle} — {exp.period}</p>
                 </div>
               </CardHeader>
               <CardContent className="space-y-3">

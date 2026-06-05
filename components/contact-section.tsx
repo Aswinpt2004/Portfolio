@@ -50,7 +50,7 @@ export function ContactSection() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 gradient-text">Get In Touch</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             I'm always open to discussing new opportunities, collaborations, or just having a chat about technology
           </p>
         </div>
@@ -68,7 +68,7 @@ export function ContactSection() {
               <CardContent>
                 <a
                   href="mailto:aswinsureshpt@gmail.com"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors break-all"
                 >
                   aswinsureshpt@gmail.com
                 </a>
@@ -88,26 +88,26 @@ export function ContactSection() {
               </CardContent>
             </Card>
 
-            <div className="grid grid-cols-2 gap-4">
-              <Button size="lg" variant="outline" className="bg-transparent border-primary/20 glow-hover" asChild>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <Button size="lg" variant="outline" className="w-full bg-transparent border-primary/20 glow-hover" asChild>
                 <a href="https://www.linkedin.com/in/aswinpt2004/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="h-5 w-5 mr-2" />
                   LinkedIn
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-primary/20 glow-hover" asChild>
+              <Button size="lg" variant="outline" className="w-full bg-transparent border-primary/20 glow-hover" asChild>
                 <a href="https://github.com/Aswinpt2004" target="_blank" rel="noopener noreferrer">
                   <Github className="h-5 w-5 mr-2" />
                   GitHub
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-primary/20 glow-hover" asChild>
+              <Button size="lg" variant="outline" className="w-full bg-transparent border-primary/20 glow-hover" asChild>
                 <a href="https://wa.me/918891381713" target="_blank" rel="noopener noreferrer">
                   <Phone className="h-5 w-5 mr-2" />
                   WhatsApp
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-primary/20 glow-hover" asChild>
+              <Button size="lg" variant="outline" className="w-full bg-transparent border-primary/20 glow-hover" asChild>
                 <a href="https://t.me/Aswin_PT" target="_blank" rel="noopener noreferrer">
                   <Send className="h-5 w-5 mr-2" />
                   Telegram
@@ -115,14 +115,14 @@ export function ContactSection() {
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <Button size="lg" variant="outline" className="bg-transparent border-primary/20 glow-hover" asChild>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <Button size="lg" variant="outline" className="w-full bg-transparent border-primary/20 glow-hover" asChild>
                 <a href="https://discord.gg/your-discord-server" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5 mr-2" />
                   Discord
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-primary/20 glow-hover" asChild>
+              <Button size="lg" variant="outline" className="w-full bg-transparent border-primary/20 glow-hover" asChild>
                 <a href="https://www.instagram.com/aswin.p.t/" target="_blank" rel="noopener noreferrer">
                   <Instagram className="h-5 w-5 mr-2" />
                   Instagram

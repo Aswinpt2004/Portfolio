@@ -51,26 +51,26 @@ export function HeroSection() {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div className="glass rounded-3xl p-6 sm:p-8 lg:p-10 backdrop-blur-xl border-primary/20">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 gradient-text animate-fade-in">Aswin P T</h1>
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+        <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 backdrop-blur-xl border-primary/20">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-5 sm:mb-6 gradient-text animate-fade-in">Aswin P T</h1>
 
-          <div className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-6 h-16 flex items-center justify-center">
+          <div className="text-base sm:text-2xl lg:text-3xl text-muted-foreground mb-5 sm:mb-6 min-h-16 sm:h-16 flex items-center justify-center">
             <TypingAnimation
               texts={["AI/ML Researcher","Software Engineer ", "Machine Intelligence Student", "AI/ML Enthusiast", "Full-stack Innovator"]}
               className="font-medium"
             />
           </div>
 
-          <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
             Passionate about solving real-world problems using AI/ML technologies. Building innovative solutions with
             Python, deep learning, and modern web technologies.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-6">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 transition-all duration-300 transform hover:scale-105 text-white"
+              className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 transition-all duration-300 sm:hover:scale-105 text-white"
               asChild
             >
               <a href="https://www.linkedin.com/in/aswinpt2004/" target="_blank" rel="noopener noreferrer">
@@ -82,7 +82,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="glass hover:glass-dark transition-all duration-300 transform hover:scale-105 bg-transparent border-primary/20"
+              className="w-full sm:w-auto glass hover:glass-dark transition-all duration-300 sm:hover:scale-105 bg-transparent border-primary/20"
               asChild
             >
               <a href="https://github.com/Aswinpt2004" target="_blank" rel="noopener noreferrer">
@@ -91,11 +91,11 @@ export function HeroSection() {
               </a>
             </Button>
 
-            <div className="relative" ref={menuRef}>
+            <div className="relative w-full sm:w-auto" ref={menuRef}>
               <Button
                 size="lg"
                 variant="secondary"
-                className="transition-all duration-300 transform hover:scale-105"
+                className="w-full sm:w-auto transition-all duration-300 sm:hover:scale-105"
                 onClick={() => setShowResumeMenu(!showResumeMenu)}
               >
                 <Download className="mr-2 h-5 w-5" />
@@ -104,7 +104,7 @@ export function HeroSection() {
               </Button>
 
               {showResumeMenu && (
-                <div className="absolute top-full mt-2 right-0 sm:left-0 sm:right-auto w-48 glass rounded-lg shadow-lg border border-primary/20 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full mt-2 left-0 sm:left-0 sm:right-auto w-full sm:w-56 glass rounded-lg shadow-lg border border-primary/20 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <button
                     onClick={handleViewResume}
                     className="w-full px-4 py-3 text-left hover:bg-primary/10 transition-colors flex items-center gap-2 border-b border-primary/10"

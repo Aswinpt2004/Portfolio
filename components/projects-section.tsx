@@ -101,7 +101,7 @@ export function ProjectsSection() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="glass hover:glass-dark transition-all duration-300 transform hover:scale-105 overflow-hidden flex flex-col"
+              className="glass hover:glass-dark transition-all duration-300 overflow-hidden flex flex-col sm:hover:scale-[1.02]"
             >
               <div className="aspect-video overflow-hidden shrink-0">
                 <img
@@ -124,14 +124,14 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
-                <div className="flex gap-2 pt-2 mt-auto">
-                  <Button size="sm" variant="outline" asChild className="text-xs">
+                <div className="flex flex-col sm:flex-row gap-2 pt-2 mt-auto">
+                  <Button size="sm" variant="outline" asChild className="text-xs w-full sm:w-auto">
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                       Code
                     </a>
                   </Button>
-                  <Button size="sm" asChild className="text-xs">
+                  <Button size="sm" asChild className="text-xs w-full sm:w-auto">
                     <a href={project.demo} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                       Demo

@@ -7,6 +7,7 @@ const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
+  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ]
@@ -46,7 +47,7 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="font-bold text-xl text-primary hover:text-primary/80 transition-colors cursor-pointer">
+          <div className="font-bold text-base sm:text-xl text-primary hover:text-primary/80 transition-colors cursor-pointer truncate max-w-[70vw] sm:max-w-none">
             Aswin P T
           </div>
 
@@ -66,7 +67,6 @@ export function Navbar() {
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center space-x-2">
-            <ViewCounter variant="navbar" />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-md text-foreground hover:text-primary hover:bg-primary/10 transition-colors"
@@ -87,6 +87,9 @@ export function Navbar() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden glass rounded-lg mt-2 p-4">
+            <div className="mb-3">
+              <ViewCounter variant="navbar" />
+            </div>
             {navItems.map((item) => (
               <button
                 key={item.name}
