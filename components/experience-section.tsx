@@ -6,6 +6,31 @@ import { Briefcase } from "lucide-react"
 
 const experiences = [
   {
+    role: "Research Assistant – AI & Data Science",
+    period: "Present",
+    subtitle: "Quantumweave Intelligence",
+    description:
+      "Working on AI-based drone vision systems, focusing on crowd counting, vehicle detection, object tracking, and intrusion detection. Developing computer vision pipelines using deep learning models such as CSRNet and YOLO, along with video processing, dataset preparation, and geospatial analysis for real-world drone applications.",
+    highlights: [
+      "AI-based drone vision systems for real-world aerial applications",
+      "Crowd counting and vehicle detection using CSRNet and YOLO architectures",
+      "Real-time object tracking and automated intrusion detection algorithms",
+      "End-to-end video processing pipelines and aerial dataset preparation",
+      "Geospatial analysis integration for enhanced aerial surveillance accuracy",
+    ],
+    technologies: [
+      "Python",
+      "Computer Vision",
+      "Deep Learning",
+      "YOLO",
+      "CSRNet",
+      "Video Processing",
+      "Geospatial Analysis",
+      "Drone Vision",
+      "Object Tracking",
+    ],
+  },
+  {
     role: "AI/ML Intern",
     period: "Mar 2026 — May 2026",
     subtitle: "Synbrains Solutions Pvt. Ltd.",

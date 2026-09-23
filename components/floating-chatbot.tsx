@@ -58,8 +58,8 @@ export function FloatingChatbot() {
       return "📧 You can reach Aswin through multiple channels: Email, LinkedIn, GitHub, WhatsApp (+91 8891381713), Telegram (@Aswin_PT), or Instagram. He's always open to discussing new opportunities and collaborations!"
     }
 
-    if (message.includes("experience") || message.includes("internship") || message.includes("job")) {
-      return "💡 Aswin has hands-on experience in software development, AI/ML research, and full-stack web development. He has worked on real-world projects that showcase his ability to deliver practical solutions using cutting-edge technologies."
+    if (message.includes("experience") || message.includes("internship") || message.includes("job") || message.includes("quantumweave") || message.includes("synbrains")) {
+      return "💡 Aswin is currently working as a Research Assistant in AI & Data Science at Quantumweave Intelligence, focusing on AI-based drone vision systems (crowd counting, vehicle detection, object tracking, and intrusion detection using CSRNet & YOLO). Previously, he was an AI/ML Intern at Synbrains Solutions, working on medical report parsing and Federated Learning workflows."
     }
 
     return "🤖 That's an interesting question! I can help you learn about Aswin's skills, projects, education, experience, or how to contact him. Feel free to ask about any specific area you'd like to know more about!"

@@ -64,7 +64,7 @@ export function HeroSection() {
 
           <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
             Passionate about solving real-world problems using AI/ML technologies. Building innovative solutions with
-            Python, deep learning, and modern web technologies.
+            Python, deep learning, and modern web technologies..
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-6">
