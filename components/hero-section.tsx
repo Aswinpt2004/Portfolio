@@ -2,18 +2,34 @@
 
 import { Button } from "@/components/ui/button"
 import { TypingAnimation } from "./typing-animation"
-import { Github, Linkedin, Download, ArrowDown, Eye, FileDown, ChevronDown } from "lucide-react"
+import {
+  Github,
+  Linkedin,
+  Download,
+  Eye,
+  FileDown,
+  ChevronDown,
+  Sparkles,
+  Command,
+  ArrowDown,
+  Compass,
+  Cpu,
+  Shield,
+  Layers,
+} from "lucide-react"
 import { useState, useRef, useEffect } from "react"
+import { InteractiveWorkbench } from "./interactive-workbench"
 
-export function HeroSection() {
+interface Props {
+  onOpenCommandPalette?: () => void
+}
+
+export function HeroSection({ onOpenCommandPalette }: Props) {
   const [showResumeMenu, setShowResumeMenu] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
-  const scrollToAbout = () => {
-    const element = document.querySelector("#about")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
   }
 
   const handleViewResume = () => {
@@ -35,103 +51,185 @@ export function HeroSection() {
         setShowResumeMenu(false)
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
   return (
-    <section id="home" className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Background gradient */}
-      <div className="absolute inset-0 gradient-bg" />
+    <section id="home" className="min-h-screen pt-20 pb-20 px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-6xl mx-auto w-full">
+        {/* Top OS Header Capsule */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pt-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full os-window text-xs font-mono">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="font-semibold text-foreground">RESEARCH ASSISTANT</span>
+            <span className="text-muted-foreground">@</span>
+            <span className="text-primary font-bold">QUANTUMWEAVE INTELLIGENCE</span>
+          </div>
 
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000" />
-      </div>
+          <div className="hidden sm:inline-flex items-center gap-2 text-xs font-mono text-muted-foreground">
+            <span>PRESS</span>
+            <kbd
+              onClick={onOpenCommandPalette}
+              className="px-2 py-0.5 rounded bg-muted text-foreground border border-border cursor-pointer hover:bg-primary hover:text-white transition-colors"
+            >
+              ⌘K
+            </kbd>
+            <span>FOR COMMAND TERMINAL</span>
+          </div>
+        </div>
 
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
-        <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 backdrop-blur-xl border-primary/20">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-5 sm:mb-6 gradient-text animate-fade-in">Aswin P T</h1>
+        {/* Hero Title & Identity */}
+        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 font-heading leading-tight">
+            <span className="text-foreground">Hello, I&apos;m </span>
+            <span className="os-gradient-text">Aswin P T</span>
+          </h1>
 
-          <div className="text-base sm:text-2xl lg:text-3xl text-muted-foreground mb-5 sm:mb-6 min-h-16 sm:h-16 flex items-center justify-center">
+          <div className="text-lg sm:text-2xl lg:text-3xl font-mono text-muted-foreground mb-4 min-h-[40px] flex items-center justify-center">
             <TypingAnimation
-              texts={["AI/ML Researcher","Software Engineer ", "Machine Intelligence Student", "AI/ML Enthusiast", "Full-stack Innovator"]}
-              className="font-medium"
+              texts={[
+                "AI/ML Engineer & Researcher",
+                "Drone Vision & Aerial Surveillance",
+                "Federated Graph Learning (GNNs)",
+                "Scalable Deep Learning Backends",
+              ]}
+              className="text-primary font-semibold"
             />
           </div>
 
-          <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-            Passionate about solving real-world problems using AI/ML technologies. Building innovative solutions with
-            Python, deep learning, and modern web technologies..
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            M.Sc. Machine Intelligence Student at Digital University Kerala (DUK). Pioneering computer vision for autonomous aerial drones and privacy-preserving federated graph architectures.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-6">
+          {/* Launcher Buttons */}
+          <div className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center mt-6">
+            <div className="relative" ref={menuRef}>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 hover:scale-105"
+                onClick={() => setShowResumeMenu(!showResumeMenu)}
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Resume Dossier
+                <ChevronDown className="ml-1.5 h-4 w-4 opacity-80" />
+              </Button>
+
+              {showResumeMenu && (
+                <div className="absolute top-full mt-2 left-0 sm:left-auto sm:right-0 w-56 os-window rounded-xl shadow-2xl border border-primary/30 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <button
+                    onClick={handleViewResume}
+                    className="w-full px-4 py-3 text-left hover:bg-primary/10 transition-colors flex items-center gap-2.5 text-sm font-medium border-b border-border text-foreground"
+                  >
+                    <Eye className="h-4 w-4 text-primary" />
+                    <span>View Resume (PDF)</span>
+                  </button>
+                  <button
+                    onClick={handleDownloadResume}
+                    className="w-full px-4 py-3 text-left hover:bg-primary/10 transition-colors flex items-center gap-2.5 text-sm font-medium text-foreground"
+                  >
+                    <FileDown className="h-4 w-4 text-secondary" />
+                    <span>Download PDF</span>
+                  </button>
+                </div>
+              )}
+            </div>
+
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 transition-all duration-300 sm:hover:scale-105 text-white"
+              variant="outline"
+              className="os-window rounded-xl text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
               asChild
             >
-              <a href="https://www.linkedin.com/in/aswinpt2004/" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
+              <a href="https://github.com/Aswinpt2004" target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4" />
+                GitHub
               </a>
             </Button>
 
             <Button
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto glass hover:glass-dark transition-all duration-300 sm:hover:scale-105 bg-transparent border-primary/20"
+              className="os-window rounded-xl text-foreground hover:text-[#0077b5] transition-all duration-300 hover:scale-105"
               asChild
             >
-              <a href="https://github.com/Aswinpt2004" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-5 w-5" />
-                GitHub
+              <a href="https://linkedin.com/in/aswinpt2004" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="mr-2 h-4 w-4" />
+                LinkedIn
               </a>
             </Button>
 
-            <div className="relative w-full sm:w-auto" ref={menuRef}>
-              <Button
-                size="lg"
-                variant="secondary"
-                className="w-full sm:w-auto transition-all duration-300 sm:hover:scale-105"
-                onClick={() => setShowResumeMenu(!showResumeMenu)}
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Resume
-                <ChevronDown className="ml-2 h-4 w-4" />
-              </Button>
+            <Button
+              size="lg"
+              variant="secondary"
+              onClick={onOpenCommandPalette}
+              className="os-window hover:bg-primary/15 rounded-xl text-foreground font-medium transition-all duration-300 hover:scale-105"
+            >
+              <Command className="mr-2 h-4 w-4 text-primary" />
+              ⌘K Commands
+            </Button>
+          </div>
+        </div>
 
-              {showResumeMenu && (
-                <div className="absolute top-full mt-2 left-0 sm:left-0 sm:right-auto w-full sm:w-56 glass rounded-lg shadow-lg border border-primary/20 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <button
-                    onClick={handleViewResume}
-                    className="w-full px-4 py-3 text-left hover:bg-primary/10 transition-colors flex items-center gap-2 border-b border-primary/10"
-                  >
-                    <Eye className="h-4 w-4" />
-                    <span>View Resume</span>
-                  </button>
-                  <button
-                    onClick={handleDownloadResume}
-                    className="w-full px-4 py-3 text-left hover:bg-primary/10 transition-colors flex items-center gap-2"
-                  >
-                    <FileDown className="h-4 w-4" />
-                    <span>Download Resume</span>
-                  </button>
-                </div>
-              )}
+        {/* ======================================================== */}
+        {/* FLAGSHIP INTERACTIVE AI WORKBENCH WINDOW                 */}
+        {/* ======================================================== */}
+        <div id="workbench" className="w-full max-w-4xl mx-auto my-6 scroll-mt-24">
+          <InteractiveWorkbench initialTab="drone" />
+        </div>
+
+        {/* 4 Interactive OS Feature Highlights */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8">
+          <div className="os-window p-4 rounded-xl flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-primary/10 text-primary">
+              <Compass className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-bold text-foreground">Drone Vision</div>
+              <div className="text-[11px] text-muted-foreground font-mono">CSRNet & YOLO</div>
             </div>
           </div>
 
-          <Button
-            variant="ghost"
-            size="lg"
-            onClick={scrollToAbout}
-            className="animate-bounce hover:animate-none transition-all duration-300"
+          <div className="os-window p-4 rounded-xl flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-secondary/10 text-secondary">
+              <Shield className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-bold text-foreground">FedGraph-Shield</div>
+              <div className="text-[11px] text-muted-foreground font-mono">Differential Privacy</div>
+            </div>
+          </div>
+
+          <div className="os-window p-4 rounded-xl flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-accent/10 text-accent">
+              <Cpu className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-bold text-foreground">Connectome fMRI</div>
+              <div className="text-[11px] text-muted-foreground font-mono">Graph Attention Net</div>
+            </div>
+          </div>
+
+          <div className="os-window p-4 rounded-xl flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">
+              <Layers className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-bold text-foreground">AI Backends</div>
+              <div className="text-[11px] text-muted-foreground font-mono">FastAPI & PyTorch</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => scrollTo("about")}
+            className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 font-mono text-xs"
           >
-            <ArrowDown className="h-6 w-6" />
-          </Button>
+            <span>SCROLL TO EXPLORE BENTO ARSENAL</span>
+            <ArrowDown className="h-4 w-4 animate-bounce" />
+          </button>
         </div>
       </div>
     </section>

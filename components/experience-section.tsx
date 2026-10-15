@@ -1,101 +1,147 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Briefcase } from "lucide-react"
+import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react"
 
 const experiences = [
   {
     role: "Research Assistant – AI & Data Science",
-    period: "Present",
-    subtitle: "Quantumweave Intelligence",
+    period: "Aug 2024 — Present",
+    company: "Quantumweave Intelligence",
+    location: "Trivandrum, India",
+    type: "Research & Development",
     description:
-      "Working on AI-based drone vision systems, focusing on crowd counting, vehicle detection, object tracking, and intrusion detection. Developing computer vision pipelines using deep learning models such as CSRNet and YOLO, along with video processing, dataset preparation, and geospatial analysis for real-world drone applications.",
+      "Spearheading AI-based drone vision systems, computer vision pipelines, and geospatial analysis workflows for real-world drone aerial surveillance.",
     highlights: [
-      "AI-based drone vision systems for real-world aerial applications",
-      "Crowd counting and vehicle detection using CSRNet and YOLO architectures",
-      "Real-time object tracking and automated intrusion detection algorithms",
-      "End-to-end video processing pipelines and aerial dataset preparation",
-      "Geospatial analysis integration for enhanced aerial surveillance accuracy",
+      "Designed and deployed computer vision pipelines for real-time crowd counting, vehicle detection, object tracking, and automated perimeter intrusion detection.",
+      "Implemented deep learning models including CSRNet for dilated crowd density estimation and custom-tuned YOLO architectures for low-altitude aerial perspectives.",
+      "Conducted extensive aerial video processing, dataset preparation, and integrated geospatial analysis for enhanced field drone deployment precision.",
     ],
     technologies: [
       "Python",
       "Computer Vision",
+      "Drone Vision",
       "Deep Learning",
       "YOLO",
       "CSRNet",
       "Video Processing",
       "Geospatial Analysis",
-      "Drone Vision",
       "Object Tracking",
     ],
   },
   {
     role: "AI/ML Intern",
     period: "Mar 2026 — May 2026",
-    subtitle: "Synbrains Solutions Pvt. Ltd.",
+    company: "Synbrains Solutions Pvt. Ltd.",
+    location: "Kozhikode, India",
+    type: "Industry Internship",
     description:
-      "Developed models to parse unstructured medical scan reports into structured formats and deployed Federated Learning workflows. Responsible for model experimentation, backend development (FastAPI/Flask), Docker containerization, Postman testing, code reviews, and technical documentation.",
+      "Delivered production-grade clinical AI components, automated unstructured medical report extraction, and privacy-preserving Federated Learning workflows.",
     highlights: [
-      "Model experimentation and evaluation",
-      "Parsed unstructured medical reports into structured formats",
-      "Implemented Federated Learning workflows for cross-institutional training",
-      "Backend APIs with FastAPI / Flask",
-      "Docker containerization and Postman testing",
-      "Code reviews, technical documentation and production-ready delivery",
-      "Strong debugging, maintainable code and industry practices",
+      "Engineered the PI-RADS prostate AI clinical reporting platform, implementing diagnostic image handling, 3D sector mapping modules, and scoring algorithms.",
+      "Built a modular zero-codebase medical scan report extraction pipeline using Pydantic validation contracts and high-precision parsing for raw PDF/DOCX diagnostic reports.",
+      "Implemented Federated Learning workflows for cross-institutional clinical model training with FastAPI backend services and Docker containerization.",
     ],
     technologies: [
       "Python",
       "FastAPI",
       "Flask",
-      "Docker",
       "Federated Learning",
+      "Docker",
       "Postman",
-      "Git",
-      "AI/ML",
+      "Git Branching",
+      "Pydantic",
     ],
   },
 ]
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-5xl mx-auto">
+        {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Experience
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full os-window text-primary text-xs font-mono font-medium mb-3">
+            <Briefcase className="w-3.5 h-3.5" />
+            <span>NEURAL OS // CAREER TRACK RECORD</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-heading tracking-tight mb-4">
+            Professional <span className="os-gradient-text">Experience</span>
           </h2>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Hands-on research and industry engineering in computer vision, deep learning, and federated systems.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-6">
+        {/* Timeline */}
+        <div className="relative border-l-2 border-primary/30 ml-4 sm:ml-8 space-y-12">
           {experiences.map((exp, idx) => (
-            <Card key={idx} className="glass hover:glass-dark transition-all duration-300">
-              <CardHeader className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 pb-2">
-                <Briefcase className="h-6 w-6 text-primary" />
-                <div className="min-w-0">
-                  <CardTitle className="text-base sm:text-lg font-bold">{exp.role}</CardTitle>
-                  <p className="text-sm text-muted-foreground break-words">{exp.subtitle} — {exp.period}</p>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-sm text-muted-foreground">{exp.description}</p>
+            <div key={idx} className="relative pl-6 sm:pl-10 group">
+              {/* Telemetry Node Dot */}
+              <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-background border-2 border-primary group-hover:scale-125 transition-all duration-300 shadow-md shadow-primary/30" />
 
-                <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech, i) => (
-                    <Badge key={i} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
+              <div className="os-window transition-all duration-300">
+                <div className="os-window-header py-2 px-4">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  </div>
+                  <div className="flex items-center gap-2 font-mono text-xs text-primary font-medium">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>{exp.period}</span>
+                  </div>
                 </div>
 
-                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 mt-2">
-                  {exp.highlights.map((h, i) => (
-                    <li key={i}>{h}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+                <div className="p-5 sm:p-6 space-y-4">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold font-heading text-foreground group-hover:text-primary transition-colors">
+                      {exp.role}
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono text-muted-foreground mt-1">
+                      <span className="text-secondary font-semibold">{exp.company}</span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5" />
+                        {exp.location}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-foreground/90 font-medium leading-relaxed">
+                    {exp.description}
+                  </p>
+
+                  <div className="space-y-2">
+                    <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider block">
+                      KEY ACHIEVEMENTS & CONTRIBUTIONS:
+                    </span>
+                    <ul className="space-y-2">
+                      {exp.highlights.map((h, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
+                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pt-2 border-t border-border">
+                    <div className="flex flex-wrap gap-1.5">
+                      {exp.technologies.map((tech, i) => (
+                        <Badge
+                          key={i}
+                          variant="secondary"
+                          className="text-[11px] font-mono bg-muted/60 border border-border text-muted-foreground hover:text-foreground"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

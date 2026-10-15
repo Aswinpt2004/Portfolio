@@ -4,81 +4,74 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to vibrant purple-blue gradient theme for more attractive colors */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.15 0 0);
-  --card: oklch(0.98 0 0 / 0.8);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(0.98 0 0 / 0.9);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.6 0.25 270); /* Vibrant purple */
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.65 0.2 240); /* Blue accent */
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.7 0.15 300); /* Pink accent */
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.3 0 0 / 0.2);
-  --input: oklch(0.96 0 0);
-  --ring: oklch(0.6 0.25 270 / 0.5);
-  --chart-1: oklch(0.6 0.25 270);
-  --chart-2: oklch(0.65 0.2 240);
-  --chart-3: oklch(0.7 0.15 300);
-  --chart-4: oklch(0.6 0.2 200);
-  --chart-5: oklch(0.65 0.18 330);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.96 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(1 0 0);
-  --sidebar-primary-foreground: oklch(0.145 0 0);
-  --sidebar-accent: oklch(0.6 0.25 270);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.3 0 0 / 0.2);
-  --sidebar-ring: oklch(0.6 0.25 270 / 0.5);
+  /* ========================================================
+     NEURAL OS THEME - LIGHT MODE (Opal Ceramic visionOS)
+     ======================================================== */
+  --background: #f1f5f9;
+  --foreground: #0f172a;
+  
+  --card: rgba(255, 255, 255, 0.88);
+  --card-foreground: #0f172a;
+  --popover: rgba(255, 255, 255, 0.96);
+  --popover-foreground: #0f172a;
+  
+  --primary: #4338ca;          /* Royal Indigo */
+  --primary-foreground: #ffffff;
+  --secondary: #0284c7;        /* Sky Blue */
+  --secondary-foreground: #ffffff;
+  --accent: #e11d48;           /* Crimson Rose */
+  --accent-foreground: #ffffff;
+  
+  --os-window-bg: rgba(255, 255, 255, 0.82);
+  --os-window-header: rgba(248, 250, 252, 0.92);
+  --os-window-border: rgba(99, 102, 241, 0.18);
+  --os-dock-bg: rgba(255, 255, 255, 0.75);
+  --os-dock-border: rgba(99, 102, 241, 0.2);
+  
+  --muted: #e2e8f0;
+  --muted-foreground: #475569;
+  --border: rgba(99, 102, 241, 0.16);
+  --input: #e2e8f0;
+  --ring: rgba(67, 56, 202, 0.4);
+  
+  --radius: 1rem;
 }
 
 .dark {
-  /* Updated dark theme with vibrant purple-blue colors */
-  --background: oklch(0.05 0 0);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.08 0 0 / 0.8);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.08 0 0 / 0.9);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.7 0.25 270); /* Brighter purple for dark mode */
-  --primary-foreground: oklch(0.05 0 0);
-  --secondary: oklch(0.75 0.2 240); /* Brighter blue */
-  --secondary-foreground: oklch(0.05 0 0);
-  --muted: oklch(0.12 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.8 0.15 300); /* Brighter pink */
-  --accent-foreground: oklch(0.05 0 0);
-  --destructive: oklch(0.6 0.2 25);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.15 0 0);
-  --input: oklch(0.12 0 0);
-  --ring: oklch(0.7 0.25 270 / 0.5);
-  --chart-1: oklch(0.7 0.25 270);
-  --chart-2: oklch(0.75 0.2 240);
-  --chart-3: oklch(0.8 0.15 300);
-  --chart-4: oklch(0.7 0.2 200);
-  --chart-5: oklch(0.75 0.18 330);
-  --sidebar: oklch(0.08 0 0);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.7 0.25 270);
-  --sidebar-primary-foreground: oklch(0.05 0 0);
-  --sidebar-accent: oklch(0.12 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.15 0 0);
-  --sidebar-ring: oklch(0.7 0.25 270 / 0.5);
+  /* ========================================================
+     NEURAL OS THEME - DARK MODE (Deep Midnight visionOS)
+     ======================================================== */
+  --background: #07090e;       /* Deep Obsidian Space */
+  --foreground: #f8fafc;       /* Crisp Luminescent White */
+  
+  --card: rgba(14, 18, 30, 0.82);
+  --card-foreground: #f8fafc;
+  --popover: rgba(14, 18, 30, 0.96);
+  --popover-foreground: #f8fafc;
+  
+  --primary: #6366f1;          /* Electric Indigo */
+  --primary-foreground: #ffffff;
+  --secondary: #38bdf8;        /* Vivid Cyan */
+  --secondary-foreground: #07090e;
+  --accent: #fb7185;           /* Bright Rose */
+  --accent-foreground: #ffffff;
+  
+  --os-window-bg: rgba(13, 17, 28, 0.78);
+  --os-window-header: rgba(18, 24, 38, 0.9);
+  --os-window-border: rgba(99, 102, 241, 0.28);
+  --os-dock-bg: rgba(15, 20, 32, 0.75);
+  --os-dock-border: rgba(99, 102, 241, 0.35);
+  
+  --muted: #141926;
+  --muted-foreground: #94a3b8;
+  --border: rgba(99, 102, 241, 0.24);
+  --input: #1a2235;
+  --ring: rgba(99, 102, 241, 0.5);
 }
 
 @theme inline {
-  /* Updated font variables to use Inter and JetBrains Mono */
   --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
   --font-mono: var(--font-jetbrains-mono);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -94,140 +87,131 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-500 selection:bg-primary/20 selection:text-primary;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(251, 113, 133, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
+  }
+  code, pre, .font-mono {
+    font-family: var(--font-jetbrains-mono), monospace;
   }
 }
 
 @layer utilities {
-  .glass {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    /* Improved glass effect contrast for better accessibility */
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+  /* visionOS Frosted Window Container */
+  .os-window {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background: var(--os-window-bg);
+    border: 1px solid var(--os-window-border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .glass-dark {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    /* Improved dark glass effect contrast */
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  .dark .os-window {
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.06);
   }
 
-  /* Updated dark mode glass to have better contrast */
-  .dark .glass {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  .os-window:hover {
+    border-color: rgba(99, 102, 241, 0.45);
   }
 
-  /* Added gradient backgrounds for more attractive design */
-  .gradient-bg {
+  /* visionOS Window Header Bar */
+  .os-window-header {
+    background: var(--os-window-header);
+    border-bottom: 1px solid var(--os-window-border);
+    padding: 0.65rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* macOS Traffic Light Buttons */
+  .os-btn-close {
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background-color: #ff5f56;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .os-btn-min {
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background-color: #ffbd2e;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .os-btn-max {
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background-color: #27c93f;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  /* Floating visionOS / macOS Dock */
+  .os-dock {
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    background: var(--os-dock-bg);
+    border: 1px solid var(--os-dock-border);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+    border-radius: 2rem;
+  }
+
+  /* Gradient Text that pops in both modes */
+  .os-gradient-text {
+    background: linear-gradient(135deg, #4f46e5 0%, #0284c7 50%, #e11d48 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #4f46e5;
+  }
+
+  .dark .os-gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #fb7185 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #818cf8;
+  }
+
+  /* Dot Grid Pattern for Desktop Wallpaper Feel */
+  .desktop-grid {
+    background-image: radial-gradient(rgba(99, 102, 241, 0.18) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .dark .desktop-grid {
+    background-image: radial-gradient(rgba(99, 102, 241, 0.28) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Subtle Scanline / Monitor Texture */
+  .terminal-scanline {
     background: linear-gradient(
-      135deg,
-      oklch(0.6 0.25 270 / 0.1) 0%,
-      oklch(0.65 0.2 240 / 0.1) 50%,
-      oklch(0.7 0.15 300 / 0.1) 100%
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(99, 102, 241, 0.04) 50%,
+      rgba(99, 102, 241, 0.04)
     );
-  }
-
-  .gradient-text {
-    background: linear-gradient(135deg, oklch(0.6 0.25 270) 0%, oklch(0.65 0.2 240) 50%, oklch(0.7 0.15 300) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* Added fallback color for better accessibility */
-    color: oklch(0.6 0.25 270);
-  }
-
-  /* Improved gradient text for dark mode */
-  .dark .gradient-text {
-    background: linear-gradient(135deg, oklch(0.7 0.25 270) 0%, oklch(0.75 0.2 240) 50%, oklch(0.8 0.15 300) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: oklch(0.7 0.25 270);
-  }
-
-  /* Added blob animation and delay utilities */
-  @keyframes blob {
-    0% {
-      transform: translate(0px, 0px) scale(1);
-    }
-    33% {
-      transform: translate(30px, -50px) scale(1.1);
-    }
-    66% {
-      transform: translate(-20px, 20px) scale(0.9);
-    }
-    100% {
-      transform: translate(0px, 0px) scale(1);
-    }
-  }
-
-  .animate-blob {
-    animation: blob 7s infinite;
-  }
-
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
-
-  /* Added floating animation for enhanced visual appeal */
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  /* Added glow effect for interactive elements */
-  .glow {
-    box-shadow: 0 0 20px oklch(0.6 0.25 270 / 0.3);
-  }
-
-  .glow-hover:hover {
-    box-shadow: 0 0 30px oklch(0.6 0.25 270 / 0.5);
-    transition: box-shadow 0.3s ease;
+    background-size: 100% 4px;
   }
 }

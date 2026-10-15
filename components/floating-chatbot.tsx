@@ -1,8 +1,8 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
+import { Bot, Send, X, Sparkles } from "lucide-react"
 
 interface Message {
   id: string
@@ -11,88 +11,134 @@ interface Message {
   timestamp: Date
 }
 
+const quickPrompts = [
+  "Tell me about his Drone Vision research",
+  "Explain FedGraph-Shield project",
+  "What is his backend & ML stack?",
+  "How can I contact Aswin?",
+]
+
 export function FloatingChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "👋 Hi! I'm Aswin's AI assistant. I can help you learn about his background, skills, projects, and experience. What would you like to know?",
+      text: "👋 Hi there! I'm Aswin's AI Assistant. Ask me anything about his work in Drone Computer Vision, Federated GNNs, or backend engineering.",
       isUser: false,
       timestamp: new Date(),
     },
   ])
   const [inputValue, setInputValue] = useState("")
   const [isTyping, setIsTyping] = useState(false)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (isOpen) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    }
+  }, [messages, isOpen])
 
   const scrollToSection = (sectionId: string) => {
-    console.log("[v0] Chatbot scrolling to:", sectionId)
     const element = document.getElementById(sectionId)
     if (element) {
-      console.log("[v0] Element found, scrolling...")
       element.scrollIntoView({
         behavior: "smooth",
         block: "start",
       })
       setIsOpen(false)
-    } else {
-      console.log("[v0] Element not found:", sectionId)
     }
   }
 
   const getAIResponse = (userMessage: string): string => {
     const message = userMessage.toLowerCase()
 
-    if (message.includes("skill") || message.includes("technology") || message.includes("programming")) {
-      return "🚀 Aswin is proficient in Python, Django, React, JavaScript, Machine Learning, and AI/ML technologies. He has experience with TensorFlow, PyTorch, and various web development frameworks. His technical expertise spans from backend development to AI model implementation."
+    if (
+      message.includes("drone") ||
+      message.includes("vision") ||
+      message.includes("csrnet") ||
+      message.includes("yolo") ||
+      message.includes("quantumweave")
+    ) {
+      return "🛰️ At Quantumweave Intelligence, Aswin develops AI-based drone vision systems. He engineers computer vision pipelines using CSRNet (for dilated crowd density estimation) and YOLO architectures for aerial surveillance, vehicle detection, real-time object tracking, and automated intrusion monitoring."
     }
 
-    if (message.includes("project") || message.includes("work") || message.includes("portfolio")) {
-      return "💼 Aswin has worked on several impressive projects including a Pet Care Platform with AI-powered features, an E-commerce platform, and various machine learning applications. His projects demonstrate expertise in full-stack development and AI integration."
+    if (
+      message.includes("fedgraph") ||
+      message.includes("federated") ||
+      message.includes("graph") ||
+      message.includes("fraud") ||
+      message.includes("privacy")
+    ) {
+      return "🛡️ FedGraph-Shield is Aswin's ongoing research in Hierarchical Federated Graph Learning. It allows distributed banking institutions to collaboratively train GNNs to uncover cyclic financial fraud rings without sharing raw customer data, coordinated via Flower with Differential Privacy (ε=0.5)."
     }
 
-    if (message.includes("education") || message.includes("background") || message.includes("about")) {
-      return "🎓 Aswin is currently pursuing Machine Intelligence and has a strong background in software development. He combines academic knowledge with practical experience in AI/ML and web development technologies."
+    if (
+      message.includes("connectome") ||
+      message.includes("fmri") ||
+      message.includes("brain") ||
+      message.includes("gat")
+    ) {
+      return "🧠 In his Dynamic Connectome project, Aswin investigates reality-monitoring failures under sleep deprivation. He models resting-state fMRI scans using Graph Attention Networks (GATs) to identify early markers of psychosis-risk and prefrontal-sensory disconnects."
     }
 
-    if (message.includes("contact") || message.includes("reach") || message.includes("hire")) {
-      return "📧 You can reach Aswin through multiple channels: Email, LinkedIn, GitHub, WhatsApp (+91 8891381713), Telegram (@Aswin_PT), or Instagram. He's always open to discussing new opportunities and collaborations!"
+    if (
+      message.includes("skill") ||
+      message.includes("stack") ||
+      message.includes("tech") ||
+      message.includes("backend")
+    ) {
+      return "⚡ Aswin's core stack combines PyTorch, PyTorch Geometric, TensorFlow, OpenCV, and YOLO with high-performance backends in FastAPI, Docker, Django, and PostgreSQL. He also codes in Python, C++, and TypeScript/Next.js."
     }
 
-    if (message.includes("experience") || message.includes("internship") || message.includes("job") || message.includes("quantumweave") || message.includes("synbrains")) {
-      return "💡 Aswin is currently working as a Research Assistant in AI & Data Science at Quantumweave Intelligence, focusing on AI-based drone vision systems (crowd counting, vehicle detection, object tracking, and intrusion detection using CSRNet & YOLO). Previously, he was an AI/ML Intern at Synbrains Solutions, working on medical report parsing and Federated Learning workflows."
+    if (
+      message.includes("contact") ||
+      message.includes("email") ||
+      message.includes("phone") ||
+      message.includes("hire")
+    ) {
+      return "📬 You can reach Aswin directly via email at aswinsureshpt@gmail.com, or phone at +91 88913 81713 / +91 85899 17134. He's active on LinkedIn and GitHub (@Aswinpt2004) and open to AI research collaborations and engineering roles!"
     }
 
-    return "🤖 That's an interesting question! I can help you learn about Aswin's skills, projects, education, experience, or how to contact him. Feel free to ask about any specific area you'd like to know more about!"
+    if (
+      message.includes("education") ||
+      message.includes("college") ||
+      message.includes("duk")
+    ) {
+      return "🎓 Aswin is pursuing an M.Sc. in Computer Science (Machine Intelligence) at Kerala University of Digital Sciences, Innovation and Technology (DUK, 2024-2026). He holds a B.Sc. in Computer Science from CAS IHRD Kozhikode (2024)."
+    }
+
+    return "🤖 Command received! Aswin specializes in Drone Vision (CSRNet/YOLO), Federated Graph Learning (FedGraph-Shield), and high-throughput AI backends. Feel free to ask about his specific architectures or click any section to navigate!"
   }
 
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
   }
 
-  const handleSendMessage = async () => {
-    if (!inputValue.trim()) return
+  const handleSendMessage = (textToSend?: string) => {
+    const text = textToSend || inputValue
+    if (!text.trim()) return
 
     const userMessage: Message = {
       id: Date.now().toString(),
-      text: inputValue,
+      text: text,
       isUser: true,
       timestamp: new Date(),
     }
 
     setMessages((prev) => [...prev, userMessage])
-    setInputValue("")
+    if (!textToSend) setInputValue("")
     setIsTyping(true)
 
     setTimeout(() => {
       const aiResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: getAIResponse(inputValue),
+        text: getAIResponse(text),
         isUser: false,
         timestamp: new Date(),
       }
       setMessages((prev) => [...prev, aiResponse])
       setIsTyping(false)
-    }, 1500)
+    }, 800)
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -104,150 +150,163 @@ export function FloatingChatbot() {
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999]">
       <div className="relative">
-        <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />
-        <div className="absolute inset-0 rounded-full bg-primary/10 animate-pulse" />
-
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="relative w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 glow-hover"
+          className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-primary text-white shadow-xl shadow-primary/30 flex items-center justify-center transition-all duration-300 hover:scale-105 group"
+          aria-label="Open AI Copilot"
         >
           {isOpen ? (
-            <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <X className="h-6 w-6 transition-transform group-hover:rotate-90" />
           ) : (
-            <div className="relative">
-              <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                />
-              </svg>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-bounce">
-                <span className="text-xs">✨</span>
-              </div>
+            <div className="relative flex items-center justify-center">
+              <Bot className="h-6 w-6 group-hover:scale-110 transition-transform" />
+              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-secondary rounded-full animate-pulse" />
             </div>
           )}
         </button>
 
         {!isOpen && (
-          <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center animate-bounce">
-            <span className="text-white text-xs font-bold">AI</span>
+          <div className="absolute -top-1.5 -right-1.5 px-2 py-0.5 bg-accent text-white text-[9px] font-mono font-bold rounded-full shadow-md pointer-events-none">
+            AI
           </div>
         )}
       </div>
 
       {isOpen && (
-        <div className="absolute bottom-20 right-0 w-[calc(100vw-2rem)] max-w-sm sm:max-w-md animate-in slide-in-from-bottom-5 duration-300">
-          <div className="bg-background/95 backdrop-blur-xl border-primary/20 shadow-2xl glow border-2 rounded-lg">
-            <div className="p-4 border-b border-primary/20">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-primary/80 flex items-center justify-center animate-float">
-                  <span className="text-white text-sm">🤖</span>
+        <div className="absolute bottom-16 sm:bottom-20 right-0 w-[calc(100vw-2rem)] max-w-sm sm:max-w-md animate-in slide-in-from-bottom-5 duration-300">
+          <div className="glass-prism rounded-3xl overflow-hidden border border-border shadow-2xl">
+            {/* Header */}
+            <div className="p-4 bg-muted/60 border-b border-border flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+                  <Sparkles className="w-4 h-4" />
                 </div>
-                <span className="text-foreground font-semibold">Aswin's AI Assistant</span>
-                <div className="ml-auto flex items-center gap-1">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-xs text-muted-foreground">Online</span>
+                <div>
+                  <h4 className="text-xs sm:text-sm font-bold font-heading text-foreground">
+                    Aswin AI Copilot
+                  </h4>
+                  <div className="flex items-center gap-1.5 text-[10px] font-mono text-secondary">
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+                    <span>ONLINE & READY</span>
+                  </div>
                 </div>
               </div>
+
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-1.5 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
 
-            <div className="p-4 space-y-4">
-              <div className="h-64 overflow-y-auto pr-2">
-                <div className="space-y-3">
-                  {messages.map((message) => (
-                    <div key={message.id} className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}>
-                      <div
-                        className={`max-w-[80%] rounded-lg p-3 ${
-                          message.isUser ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"
+            {/* Chat Body */}
+            <div className="p-4 space-y-3">
+              <div className="h-60 sm:h-72 overflow-y-auto pr-1 space-y-3 text-xs">
+                {messages.map((message) => (
+                  <div
+                    key={message.id}
+                    className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}
+                  >
+                    <div
+                      className={`max-w-[85%] rounded-2xl p-3 leading-relaxed ${
+                        message.isUser
+                          ? "bg-primary text-white font-medium shadow-sm"
+                          : "bg-muted/70 text-foreground border border-border"
+                      }`}
+                    >
+                      <p>{message.text}</p>
+                      <p
+                        className={`text-[9px] mt-1 font-mono ${
+                          message.isUser ? "text-white/70" : "text-muted-foreground"
                         }`}
                       >
-                        <p className="text-sm">{message.text}</p>
-                        <p
-                          className={`text-xs mt-1 opacity-70 ${
-                            message.isUser ? "text-primary-foreground/70" : "text-muted-foreground"
-                          }`}
-                        >
-                          {formatTime(message.timestamp)}
-                        </p>
-                      </div>
+                        {formatTime(message.timestamp)}
+                      </p>
                     </div>
+                  </div>
+                ))}
+
+                {isTyping && (
+                  <div className="flex justify-start">
+                    <div className="bg-muted/70 border border-border rounded-2xl p-3 flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" />
+                      <div
+                        className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce"
+                        style={{ animationDelay: "0.15s" }}
+                      />
+                      <div
+                        className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce"
+                        style={{ animationDelay: "0.3s" }}
+                      />
+                    </div>
+                  </div>
+                )}
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Quick Prompts Bar */}
+              <div className="space-y-1.5 pt-2 border-t border-border">
+                <span className="text-[10px] font-mono text-muted-foreground block">
+                  SUGGESTED INQUIRIES:
+                </span>
+                <div className="flex flex-wrap gap-1">
+                  {quickPrompts.map((q, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSendMessage(q)}
+                      className="text-[10px] font-mono px-2 py-1 rounded-lg bg-background hover:bg-muted border border-border text-muted-foreground hover:text-foreground transition-colors text-left"
+                    >
+                      {q}
+                    </button>
                   ))}
-                  {isTyping && (
-                    <div className="flex justify-start">
-                      <div className="bg-muted text-foreground rounded-lg p-3">
-                        <div className="flex space-x-1">
-                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-                          <div
-                            className="w-2 h-2 bg-primary rounded-full animate-bounce"
-                            style={{ animationDelay: "0.1s" }}
-                          ></div>
-                          <div
-                            className="w-2 h-2 bg-primary rounded-full animate-bounce"
-                            style={{ animationDelay: "0.2s" }}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
 
-              <div className="flex gap-2">
+              {/* Input Form */}
+              <div className="flex gap-2 pt-1">
                 <input
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask about Aswin's skills, projects..."
-                  className="flex-1 text-sm px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  placeholder="Ask about Drone Vision, GNNs..."
+                  className="flex-1 text-xs px-3 py-2 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:border-primary font-sans"
                 />
                 <button
-                  onClick={handleSendMessage}
+                  onClick={() => handleSendMessage()}
                   disabled={!inputValue.trim() || isTyping}
-                  className="px-3 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-3.5 py-2 bg-primary text-white rounded-xl hover:bg-primary/90 disabled:opacity-50 transition-all font-mono text-xs font-semibold flex items-center justify-center shadow-sm"
                 >
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                    />
-                  </svg>
+                  <Send className="h-3.5 w-3.5" />
                 </button>
               </div>
 
-              <div className="space-y-3">
-                <p className="text-sm font-medium text-foreground">Quick Navigation:</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <button
-                    onClick={() => scrollToSection("about")}
-                    className="text-xs h-8 px-3 border border-primary/30 rounded-md bg-primary/5 hover:bg-primary/20 hover:border-primary/50 text-foreground transition-colors flex items-center gap-1"
-                  >
-                    <span>👤</span> About
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("skills")}
-                    className="text-xs h-8 px-3 border border-primary/30 rounded-md bg-primary/5 hover:bg-primary/20 hover:border-primary/50 text-foreground transition-colors flex items-center gap-1"
-                  >
-                    <span>💻</span> Skills
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("projects")}
-                    className="text-xs h-8 px-3 border border-primary/30 rounded-md bg-primary/5 hover:bg-primary/20 hover:border-primary/50 text-foreground transition-colors flex items-center gap-1"
-                  >
-                    <span>💼</span> Projects
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("contact")}
-                    className="text-xs h-8 px-3 border border-primary/30 rounded-md bg-primary/5 hover:bg-primary/20 hover:border-primary/50 text-foreground transition-colors flex items-center gap-1"
-                  >
-                    <span>📧</span> Contact
-                  </button>
-                </div>
+              {/* Quick Jump Buttons */}
+              <div className="grid grid-cols-4 gap-1.5 pt-1 text-[10px] font-mono text-center">
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="py-1 rounded-lg bg-background hover:bg-muted text-muted-foreground hover:text-foreground transition-colors border border-border"
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => scrollToSection("skills")}
+                  className="py-1 rounded-lg bg-background hover:bg-muted text-muted-foreground hover:text-foreground transition-colors border border-border"
+                >
+                  Arsenal
+                </button>
+                <button
+                  onClick={() => scrollToSection("experience")}
+                  className="py-1 rounded-lg bg-background hover:bg-muted text-muted-foreground hover:text-foreground transition-colors border border-border"
+                >
+                  Career
+                </button>
+                <button
+                  onClick={() => scrollToSection("projects")}
+                  className="py-1 rounded-lg bg-background hover:bg-muted text-muted-foreground hover:text-foreground transition-colors border border-border"
+                >
+                  Projects
+                </button>
               </div>
             </div>
           </div>
