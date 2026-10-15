@@ -5,67 +5,76 @@
 
 :root {
   /* ========================================================
-     NEURAL OS THEME - LIGHT MODE (Opal Ceramic visionOS)
+     DESKTOP OS THEME - LIGHT MODE (Sonoma Studio Opal)
      ======================================================== */
-  --background: #f1f5f9;
+  --background: #eef2f6;
   --foreground: #0f172a;
   
-  --card: rgba(255, 255, 255, 0.88);
-  --card-foreground: #0f172a;
-  --popover: rgba(255, 255, 255, 0.96);
-  --popover-foreground: #0f172a;
+  --desktop-wallpaper: radial-gradient(at 0% 0%, #c7d2fe 0px, transparent 50%),
+    radial-gradient(at 100% 0%, #bae6fd 0px, transparent 50%),
+    radial-gradient(at 50% 100%, #fbcfe8 0px, transparent 50%),
+    #e2e8f0;
   
-  --primary: #4338ca;          /* Royal Indigo */
+  --os-window-bg: rgba(255, 255, 255, 0.88);
+  --os-window-header: rgba(248, 250, 252, 0.95);
+  --os-window-border: rgba(99, 102, 241, 0.2);
+  --os-dock-bg: rgba(255, 255, 255, 0.75);
+  --os-dock-border: rgba(99, 102, 241, 0.22);
+  
+  --primary: #4f46e5;
   --primary-foreground: #ffffff;
-  --secondary: #0284c7;        /* Sky Blue */
+  --secondary: #0284c7;
   --secondary-foreground: #ffffff;
-  --accent: #e11d48;           /* Crimson Rose */
+  --accent: #e11d48;
   --accent-foreground: #ffffff;
   
-  --os-window-bg: rgba(255, 255, 255, 0.82);
-  --os-window-header: rgba(248, 250, 252, 0.92);
-  --os-window-border: rgba(99, 102, 241, 0.18);
-  --os-dock-bg: rgba(255, 255, 255, 0.75);
-  --os-dock-border: rgba(99, 102, 241, 0.2);
+  --card: rgba(255, 255, 255, 0.9);
+  --card-foreground: #0f172a;
+  --popover: rgba(255, 255, 255, 0.98);
+  --popover-foreground: #0f172a;
   
-  --muted: #e2e8f0;
+  --muted: #f1f5f9;
   --muted-foreground: #475569;
-  --border: rgba(99, 102, 241, 0.16);
+  --border: rgba(99, 102, 241, 0.18);
   --input: #e2e8f0;
-  --ring: rgba(67, 56, 202, 0.4);
-  
-  --radius: 1rem;
+  --ring: rgba(79, 70, 229, 0.4);
+  --radius: 0.85rem;
 }
 
 .dark {
   /* ========================================================
-     NEURAL OS THEME - DARK MODE (Deep Midnight visionOS)
+     DESKTOP OS THEME - DARK MODE (Midnight Cosmic Sonoma)
      ======================================================== */
-  --background: #07090e;       /* Deep Obsidian Space */
-  --foreground: #f8fafc;       /* Crisp Luminescent White */
+  --background: #07090e;
+  --foreground: #f8fafc;
   
-  --card: rgba(14, 18, 30, 0.82);
-  --card-foreground: #f8fafc;
-  --popover: rgba(14, 18, 30, 0.96);
-  --popover-foreground: #f8fafc;
+  --desktop-wallpaper: radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.25) 0px, transparent 50%),
+    radial-gradient(at 90% 20%, rgba(56, 189, 248, 0.2) 0px, transparent 50%),
+    radial-gradient(at 50% 90%, rgba(244, 63, 94, 0.15) 0px, transparent 50%),
+    #07090e;
   
-  --primary: #6366f1;          /* Electric Indigo */
-  --primary-foreground: #ffffff;
-  --secondary: #38bdf8;        /* Vivid Cyan */
-  --secondary-foreground: #07090e;
-  --accent: #fb7185;           /* Bright Rose */
-  --accent-foreground: #ffffff;
-  
-  --os-window-bg: rgba(13, 17, 28, 0.78);
-  --os-window-header: rgba(18, 24, 38, 0.9);
-  --os-window-border: rgba(99, 102, 241, 0.28);
-  --os-dock-bg: rgba(15, 20, 32, 0.75);
+  --os-window-bg: rgba(14, 18, 30, 0.85);
+  --os-window-header: rgba(18, 24, 40, 0.95);
+  --os-window-border: rgba(99, 102, 241, 0.3);
+  --os-dock-bg: rgba(14, 18, 30, 0.8);
   --os-dock-border: rgba(99, 102, 241, 0.35);
   
-  --muted: #141926;
+  --primary: #6366f1;
+  --primary-foreground: #ffffff;
+  --secondary: #38bdf8;
+  --secondary-foreground: #07090e;
+  --accent: #fb7185;
+  --accent-foreground: #ffffff;
+  
+  --card: rgba(15, 20, 34, 0.85);
+  --card-foreground: #f8fafc;
+  --popover: rgba(15, 20, 34, 0.98);
+  --popover-foreground: #f8fafc;
+  
+  --muted: #151a2b;
   --muted-foreground: #94a3b8;
-  --border: rgba(99, 102, 241, 0.24);
-  --input: #1a2235;
+  --border: rgba(99, 102, 241, 0.25);
+  --input: #1a2238;
   --ring: rgba(99, 102, 241, 0.5);
 }
 
@@ -97,12 +106,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-500 selection:bg-primary/20 selection:text-primary;
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
-      radial-gradient(at 50% 100%, rgba(251, 113, 133, 0.08) 0px, transparent 50%);
-    background-attachment: fixed;
+    @apply bg-background text-foreground transition-colors duration-500 overflow-hidden select-none;
   }
   h1, h2, h3, h4, .font-heading {
     font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
@@ -113,105 +117,90 @@
 }
 
 @layer utilities {
-  /* visionOS Frosted Window Container */
-  .os-window {
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+  .os-desktop {
+    background: var(--desktop-wallpaper);
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Desktop Icon Styling */
+  .desktop-icon-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 82px;
+    height: 90px;
+    border-radius: 12px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+  }
+  .desktop-icon-btn:hover {
+    background: rgba(99, 102, 241, 0.15);
+  }
+  .desktop-icon-btn:active {
+    background: rgba(99, 102, 241, 0.28);
+    transform: scale(0.96);
+  }
+
+  /* Real macOS Window Frame */
+  .os-desktop-window {
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
     background: var(--os-window-bg);
     border: 1px solid var(--os-window-border);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05);
-    border-radius: 1.25rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .dark .os-window {
-    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.06);
-  }
-
-  .os-window:hover {
-    border-color: rgba(99, 102, 241, 0.45);
-  }
-
-  /* visionOS Window Header Bar */
-  .os-window-header {
+  .os-desktop-window-header {
     background: var(--os-window-header);
     border-bottom: 1px solid var(--os-window-border);
-    padding: 0.65rem 1rem;
+    padding: 8px 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: grab;
+    user-select: none;
+  }
+  .os-desktop-window-header:active {
+    cursor: grabbing;
   }
 
-  /* macOS Traffic Light Buttons */
-  .os-btn-close {
+  /* Traffic Light Buttons */
+  .traffic-btn {
     width: 12px;
     height: 12px;
     border-radius: 9999px;
-    background-color: #ff5f56;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.15s;
   }
-  .os-btn-min {
-    width: 12px;
-    height: 12px;
-    border-radius: 9999px;
-    background-color: #ffbd2e;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+  .traffic-close {
+    background: #ff5f56;
+    border: 1px solid #e0443e;
   }
-  .os-btn-max {
-    width: 12px;
-    height: 12px;
-    border-radius: 9999px;
-    background-color: #27c93f;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+  .traffic-min {
+    background: #ffbd2e;
+    border: 1px solid #dea123;
+  }
+  .traffic-max {
+    background: #27c93f;
+    border: 1px solid #1aab29;
   }
 
-  /* Floating visionOS / macOS Dock */
-  .os-dock {
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
+  /* macOS Dock */
+  .os-desktop-dock {
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
     background: var(--os-dock-bg);
     border: 1px solid var(--os-dock-border);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
-    border-radius: 2rem;
-  }
-
-  /* Gradient Text that pops in both modes */
-  .os-gradient-text {
-    background: linear-gradient(135deg, #4f46e5 0%, #0284c7 50%, #e11d48 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #4f46e5;
-  }
-
-  .dark .os-gradient-text {
-    background: linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #fb7185 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #818cf8;
-  }
-
-  /* Dot Grid Pattern for Desktop Wallpaper Feel */
-  .desktop-grid {
-    background-image: radial-gradient(rgba(99, 102, 241, 0.18) 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
-  .dark .desktop-grid {
-    background-image: radial-gradient(rgba(99, 102, 241, 0.28) 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
-
-  /* Subtle Scanline / Monitor Texture */
-  .terminal-scanline {
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0) 50%,
-      rgba(99, 102, 241, 0.04) 50%,
-      rgba(99, 102, 241, 0.04)
-    );
-    background-size: 100% 4px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+    border-radius: 24px;
   }
 }
