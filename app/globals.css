@@ -1,81 +1,63 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@source "../components";
+@source "../app";
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
   /* ========================================================
-     DESKTOP OS THEME - LIGHT MODE (Sonoma Studio Opal)
+     CLEAN LIGHT MODE - Crisp, Professional Slate & Emerald
      ======================================================== */
-  --background: #eef2f6;
-  --foreground: #0f172a;
+  --background: #f8fafc;        /* Slate 50 */
+  --foreground: #0f172a;        /* Slate 900 */
   
-  --desktop-wallpaper: radial-gradient(at 0% 0%, #c7d2fe 0px, transparent 50%),
-    radial-gradient(at 100% 0%, #bae6fd 0px, transparent 50%),
-    radial-gradient(at 50% 100%, #fbcfe8 0px, transparent 50%),
-    #e2e8f0;
-  
-  --os-window-bg: rgba(255, 255, 255, 0.88);
-  --os-window-header: rgba(248, 250, 252, 0.95);
-  --os-window-border: rgba(99, 102, 241, 0.2);
-  --os-dock-bg: rgba(255, 255, 255, 0.75);
-  --os-dock-border: rgba(99, 102, 241, 0.22);
-  
-  --primary: #4f46e5;
-  --primary-foreground: #ffffff;
-  --secondary: #0284c7;
-  --secondary-foreground: #ffffff;
-  --accent: #e11d48;
-  --accent-foreground: #ffffff;
-  
-  --card: rgba(255, 255, 255, 0.9);
+  --card: #ffffff;
   --card-foreground: #0f172a;
-  --popover: rgba(255, 255, 255, 0.98);
+  --popover: #ffffff;
   --popover-foreground: #0f172a;
   
-  --muted: #f1f5f9;
-  --muted-foreground: #475569;
-  --border: rgba(99, 102, 241, 0.18);
+  --primary: #059669;          /* Emerald 600 */
+  --primary-foreground: #ffffff;
+  --secondary: #0284c7;        /* Sky 600 */
+  --secondary-foreground: #ffffff;
+  --accent: #d97706;           /* Amber 600 */
+  --accent-foreground: #ffffff;
+  
+  --muted: #f1f5f9;            /* Slate 100 */
+  --muted-foreground: #475569; /* Slate 600 */
+  --border: #e2e8f0;           /* Slate 200 */
   --input: #e2e8f0;
-  --ring: rgba(79, 70, 229, 0.4);
-  --radius: 0.85rem;
+  --ring: rgba(5, 150, 105, 0.3);
+  
+  --radius: 0.75rem;
 }
 
 .dark {
   /* ========================================================
-     DESKTOP OS THEME - DARK MODE (Midnight Cosmic Sonoma)
+     CLEAN DARK MODE - Deep Slate & Luminous Emerald
      ======================================================== */
-  --background: #07090e;
-  --foreground: #f8fafc;
+  --background: #090d16;        /* Deep Obsidian Slate */
+  --foreground: #f8fafc;        /* Slate 50 */
   
-  --desktop-wallpaper: radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.25) 0px, transparent 50%),
-    radial-gradient(at 90% 20%, rgba(56, 189, 248, 0.2) 0px, transparent 50%),
-    radial-gradient(at 50% 90%, rgba(244, 63, 94, 0.15) 0px, transparent 50%),
-    #07090e;
-  
-  --os-window-bg: rgba(14, 18, 30, 0.85);
-  --os-window-header: rgba(18, 24, 40, 0.95);
-  --os-window-border: rgba(99, 102, 241, 0.3);
-  --os-dock-bg: rgba(14, 18, 30, 0.8);
-  --os-dock-border: rgba(99, 102, 241, 0.35);
-  
-  --primary: #6366f1;
-  --primary-foreground: #ffffff;
-  --secondary: #38bdf8;
-  --secondary-foreground: #07090e;
-  --accent: #fb7185;
-  --accent-foreground: #ffffff;
-  
-  --card: rgba(15, 20, 34, 0.85);
+  --card: #0f172a;             /* Slate 900 */
   --card-foreground: #f8fafc;
-  --popover: rgba(15, 20, 34, 0.98);
+  --popover: #0f172a;
   --popover-foreground: #f8fafc;
   
-  --muted: #151a2b;
-  --muted-foreground: #94a3b8;
-  --border: rgba(99, 102, 241, 0.25);
-  --input: #1a2238;
-  --ring: rgba(99, 102, 241, 0.5);
+  --primary: #10b981;          /* Emerald 500 */
+  --primary-foreground: #090d16;
+  --secondary: #38bdf8;        /* Sky 400 */
+  --secondary-foreground: #090d16;
+  --accent: #fbbf24;           /* Amber 400 */
+  --accent-foreground: #090d16;
+  
+  --muted: #1e293b;            /* Slate 800 */
+  --muted-foreground: #94a3b8; /* Slate 400 */
+  --border: #1e293b;           /* Slate 800 */
+  --input: #1e293b;
+  --ring: rgba(16, 185, 129, 0.4);
 }
 
 @theme inline {
@@ -106,10 +88,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-500 overflow-hidden select-none;
+    @apply bg-background text-foreground transition-colors duration-300 antialiased selection:bg-primary/20 selection:text-primary;
   }
   h1, h2, h3, h4, .font-heading {
     font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
+    letter-spacing: -0.02em;
   }
   code, pre, .font-mono {
     font-family: var(--font-jetbrains-mono), monospace;
@@ -117,90 +100,45 @@
 }
 
 @layer utilities {
-  .os-desktop {
-    background: var(--desktop-wallpaper);
-    background-size: cover;
-    background-position: center;
+  /* Tactical Aerospace HUD Panel with Subtle Corner Bracket Feel */
+  .hud-panel {
+    background-color: var(--card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    position: relative;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hud-panel:hover {
+    border-color: rgba(16, 185, 129, 0.45);
+    box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.2);
+  }
+  .dark .hud-panel:hover {
+    box-shadow: 0 16px 36px -12px rgba(16, 185, 129, 0.15);
   }
 
-  /* Desktop Icon Styling */
-  .desktop-icon-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 82px;
-    height: 90px;
-    border-radius: 12px;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
+  /* Thin Tactical Scrollbar */
+  .hud-scroll::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
   }
-  .desktop-icon-btn:hover {
-    background: rgba(99, 102, 241, 0.15);
+  .hud-scroll::-webkit-scrollbar-track {
+    background: transparent;
   }
-  .desktop-icon-btn:active {
-    background: rgba(99, 102, 241, 0.28);
-    transform: scale(0.96);
-  }
-
-  /* Real macOS Window Frame */
-  .os-desktop-window {
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    background: var(--os-window-bg);
-    border: 1px solid var(--os-window-border);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .os-desktop-window-header {
-    background: var(--os-window-header);
-    border-bottom: 1px solid var(--os-window-border);
-    padding: 8px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: grab;
-    user-select: none;
-  }
-  .os-desktop-window-header:active {
-    cursor: grabbing;
-  }
-
-  /* Traffic Light Buttons */
-  .traffic-btn {
-    width: 12px;
-    height: 12px;
+  .hud-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
     border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: opacity 0.15s;
   }
-  .traffic-close {
-    background: #ff5f56;
-    border: 1px solid #e0443e;
-  }
-  .traffic-min {
-    background: #ffbd2e;
-    border: 1px solid #dea123;
-  }
-  .traffic-max {
-    background: #27c93f;
-    border: 1px solid #1aab29;
+  .hud-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
   }
 
-  /* macOS Dock */
-  .os-desktop-dock {
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
-    background: var(--os-dock-bg);
-    border: 1px solid var(--os-dock-border);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
-    border-radius: 24px;
+  /* Tactical Grid Texture */
+  .tactical-grid {
+    background-image: 
+      linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }
